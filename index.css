@@ -1,0 +1,170 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.logo{
+    width: 100px;
+}
+
+
+
+.nav-items > ul {
+    font-size: 25px;
+    display: flex;
+    list-style-type: none;
+    padding: 10px;
+}
+
+.nav-items > ul > li {
+    padding: 10px;
+    margin: 10px;
+}
+
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.res-card{
+    margin: 2px;
+    padding: 5px;
+    width: 200px;
+}
+
+.res-card:hover{
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.search{
+    padding: 10px;
+} 
+
+.res-logo{
+    width: 100%;
+}
+
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmer-card{
+    margin: 20px;
+    width: 200px;
+    height: 400px;
+    background-color: #f0f0f0;
+}
+
+.login{
+    padding: 0px 20px;
+    cursor: pointer;
+}
+
+.filter-btn{
+    margin: 10px;
+    cursor: pointer;
+}
+
+.filter{
+    display: flex;
+}
+
+.user-card{
+    text-align: center;
+    border: 1px solid black;
+    padding: auto;
+    background-color: aqua;
+}
+
+
+/* General Styles */
+.menu {
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .restaurant-details {
+    margin-bottom: 20px;
+  }
+  
+  .restaurant-details h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .restaurant-details p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  /* Menu List Styles */
+  .menu-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .menu-item:last-child {
+    border-bottom: none;
+  }
+  
+  .menu-item h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #333;
+  }
+  
+  .menu-item p {
+    margin: 0;
+    color: #555;
+    font-size: 0.9rem;
+  }
+  
+  /* Veg/Non-Veg Classification */
+  .menu-item strong {
+    font-size: 0.9rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 5px;
+  }
+  
+  .menu-item strong:before {
+    content: "●";
+    margin-right: 5px;
+  }
+  
+  /* Veg Indicator */
+  .menu-item strong::contains('Veg') {
+    color: #008000;
+    background-color: #e8f5e9;
+  }
+  
+  /* Non-Veg Indicator */
+  .menu-item strong::contains('Non-Veg') {
+    color: #b71c1c;
+    background-color: #fbe9e7;
+  }
+  
+  /* Classification Unknown */
+  .menu-item strong::contains('unknown') {
+    color: #757575;
+    background-color: #f0f0f0;
+  }
+  
+
+
+
