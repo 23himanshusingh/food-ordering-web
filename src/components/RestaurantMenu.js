@@ -1,29 +1,13 @@
-import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../../utils/constants";
-import mockResData from "../../utils/mockResData";
+import useRestaurant from "../../utils/useRestaurant";
+
+
 
 const RestaurantMenu = () => {
-  // Local state variable
-  const [resInfo, setResInfo] = useState(null);
   const params = useParams();
-  console.log(params);
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const data = await fetch(MENU_API + params.resid);
-      const json = await data.json();
-
-      console.log(json);
-      setResInfo(json?.data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  
+  const resInfo = useRestaurant(params.resid);
 
   if (resInfo === null) {
     return <Shimmer />;

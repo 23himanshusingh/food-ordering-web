@@ -26,6 +26,7 @@ class UserClass extends React.Component{
     }
 
     componentWillUnmount(){
+        /**used for clean ups when we move to another page from current page */
         console.log("Component Will Unmount");
     }
 
@@ -56,7 +57,8 @@ export default UserClass;
 /** LIFE CYCLE METHOD IN REACT */
 
 /*************
- * 
+ * mounting , updating, unmouting
+ * ___________
  * constructor (dummy)
  * render (dummy)
  *      <HTML dummy></HTML>
@@ -68,4 +70,16 @@ export default UserClass;
  *     render (API data)
  *     <HTML Api data></HTML>
  * component did update
+ */
+
+
+
+/**
+ * Two phases of react life cycle
+ * 1) Render 2) Commit
+ */
+
+
+/**
+ * Batching in case of more than two child components being called where rendering of the child components is batched together after which the 
  */

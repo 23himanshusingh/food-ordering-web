@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import resList from "../../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnline from "../../utils/useOnline";
 
 const Body = () => {
   //local state variable
@@ -33,6 +34,13 @@ const Body = () => {
     }
   };
 
+  const isOnline = useOnline();
+
+  if (!isOnline){
+    return (
+      <div className="container"><h1>Oops! You are Offline</h1></div>
+    )
+  }
 
   if (restaurants.length === 0) {
     return <Shimmer />;
