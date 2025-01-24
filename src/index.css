@@ -1,4 +1,7 @@
-.header{
+@import "tailwindcss";
+
+
+/* .header{
     display: flex;
     justify-content: space-between;
     border: 1px solid black;
@@ -76,9 +79,9 @@
     padding: auto;
     background-color: aqua;
 }
+ */
 
-
-/* General Styles */
+/* General Styles 
 .menu {
     font-family: Arial, sans-serif;
     margin: 20px auto;
@@ -103,7 +106,7 @@
     color: #555;
   }
   
-  /* Menu List Styles */
+   Menu List Styles 
   .menu-list {
     list-style: none;
     padding: 0;
@@ -133,7 +136,7 @@
     font-size: 0.9rem;
   }
   
-  /* Veg/Non-Veg Classification */
+  Veg/Non-Veg Classification 
   .menu-item strong {
     font-size: 0.9rem;
     padding: 4px 8px;
@@ -147,23 +150,25 @@
     margin-right: 5px;
   }
   
-  /* Veg Indicator */
+   Veg Indicator 
   .menu-item strong::contains('Veg') {
     color: #008000;
     background-color: #e8f5e9;
   }
   
-  /* Non-Veg Indicator */
+   Non-Veg Indicator 
   .menu-item strong::contains('Non-Veg') {
     color: #b71c1c;
     background-color: #fbe9e7;
   }
   
-  /* Classification Unknown */
+  Classification Unknown 
   .menu-item strong::contains('unknown') {
     color: #757575;
     background-color: #f0f0f0;
   }
+
+*/
   
 
 

@@ -36,7 +36,7 @@ class UserClass extends React.Component{
 
         return(
             <div className="user-card">
-                <img src={avatar_url}/>
+                <img className="w-50" src={avatar_url}/>
                 <h1>Name : {name}</h1>
                 <h2>Location : {location}</h2>
             </div>
@@ -81,5 +81,5 @@ export default UserClass;
 
 
 /**
- * Batching in case of more than two child components being called where rendering of the child components is batched together after which the 
+ * Batching in case of more than two child components being called where rendering of the child components is batched together after which the component did mount is called for each child component
  */

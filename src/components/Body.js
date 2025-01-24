@@ -19,7 +19,7 @@ const Body = () => {
   const fetchData = async () => {
     try {
       const data = await fetch(
-        "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=12.89960&lng=80.22090&carousel=true&third_party_vendor=1"
+        "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=12.842446573558883&lng=80.15457578731436&carousel=true&third_party_vendor=1"
       );
       const json = await data.json();
 
@@ -46,16 +46,18 @@ const Body = () => {
     return <Shimmer />;
   }
   return (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
+    <div>
+      <div className="flex my-3 p-5 bg-pink-200">
+        <div>
           <input
             type="text"
-            className="search-box"
+            className="bg-white p-2 hover:scale-105 
+        transition-transform duration-200 rounded-md"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
-          <button onClick={() => {
+          <button className="py-3 px-1 m-2 bg-purple-400 rounded-md font-semibold hover:scale-105 
+        transition-transform duration-200 cursor-pointer" onClick={() => {
             const filtered = restaurants.filter((res) => {
               return res?.info?.name?.toLowerCase().includes(searchText.toLowerCase());
             });
@@ -66,7 +68,8 @@ const Body = () => {
         </div>
 
         <button
-          className="filter-btn"
+          className="p-2 m-2 bg-purple-400 rounded-md font-semibold hover:scale-105 
+        transition-transform duration-200 cursor-pointer"
           onClick={() => {
             const filteredList = restaurants.filter(
               (res) => res?.info?.avgRating > 4
@@ -78,7 +81,7 @@ const Body = () => {
         </button>
     
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filteredRestaurants.map((res) => (
           <Link key={res?.info?.id} to={"/restaurants/"+res?.info?.id}>
             <RestaurantCard resData={res} />
