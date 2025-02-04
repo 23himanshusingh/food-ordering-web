@@ -9,11 +9,11 @@ class UserClass extends React.Component{
                location: "Default", 
             }
         };
-        console.log(this.props.name + "Child constructor");
+        // console.log(this.props.name + "Child constructor");
     }
 
     async componentDidMount() {
-        console.log(this.props.name+"Child componentDidMount");
+        // console.log(this.props.name+"Child componentDidMount");
         const data = await fetch("https://api.github.com/users/23himanshusingh");
         const json = await data.json(); 
         this.setState({
@@ -22,16 +22,16 @@ class UserClass extends React.Component{
     }
 
     componentDidUpdate(){
-        console.log("Component Did Update");
+        // console.log("Component Did Update");
     }
 
     componentWillUnmount(){
         /**used for clean ups when we move to another page from current page */
-        console.log("Component Will Unmount");
+        // console.log("Component Will Unmount");
     }
 
     render(){
-        console.log(this.props.name+"Child render");
+        // console.log(this.props.name+"Child render");
         const {name,location,avatar_url} = this.state.userInfo;
 
         return(

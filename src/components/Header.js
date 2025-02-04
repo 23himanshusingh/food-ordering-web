@@ -1,10 +1,14 @@
 import { LOGO_URL } from "../../utils/constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
+import UserContext from "../../utils/UserContext";
+
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const location = useLocation();
+
+  const {loggedInUser} = useContext(UserContext);
 
   const isActive = (path) => location.pathname === path;
 
@@ -65,6 +69,11 @@ const Header = () => {
             >
               {btnName}
             </button>
+          </li>
+          <li
+            className="px-3 py-2 rounded-md font-semibold transition-transform duration-200"
+          >
+            {loggedInUser}
           </li>
         </ul>
       </div>
