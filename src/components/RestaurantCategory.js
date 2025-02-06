@@ -1,5 +1,5 @@
 import ItemList from "./ItemList";
-
+import Menu from "./Menu";
 
 const RestaurantCategory = ({data, showItems, setShowIndex}) => {
     // console.log(data);
@@ -16,7 +16,7 @@ const RestaurantCategory = ({data, showItems, setShowIndex}) => {
                     <span>⬇️</span>
                 </div>
                 {/**Body */}
-                {showItems && <ItemList items={data?.itemCards}/>}
+                {showItems && <Menu items={data?.itemCards}/>}
             </div>
         </div>
     )

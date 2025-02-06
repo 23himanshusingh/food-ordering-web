@@ -2,7 +2,7 @@ import { LOGO_URL } from "../../utils/constants";
 import { useState, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import UserContext from "../../utils/UserContext";
-
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
@@ -11,6 +11,14 @@ const Header = () => {
   const {loggedInUser} = useContext(UserContext);
 
   const isActive = (path) => location.pathname === path;
+
+  //subscribing to store using a selector
+  const cartItems = useSelector((store) => store.cart.items);
+
+  const itemCount = Object.values(cartItems).reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   return (
     <div className="flex justify-between items-center bg-pink-200 shadow-lg px-6 py-4">
@@ -56,7 +64,7 @@ const Header = () => {
                 : "text-gray-700 hover:text-pink-600 hover:scale-105"
             }`}
           >
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">Cart ({itemCount})</Link>
           </li>
           <li>
             <button

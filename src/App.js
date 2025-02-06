@@ -1,7 +1,8 @@
-import React, { use } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
+import Cart from "./components/Cart";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
@@ -10,31 +11,35 @@ import { lazy, Suspense } from "react";
 import Shimmer from "./components/Shimmer";
 import UserContext from "../utils/UserContext";
 import { useState, useEffect } from "react";
+import { Provider } from "react-redux";
+import appStore from "../utils/appStore";
 
+// dynamic / lazy loading of About component
 const About = lazy(() => import("./components/About"));
 
-
-
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
 
+  // authentication code...
+  useEffect(() => {
+    // make an api call and send username and password
+    const data = {
+      username: "",
+    };
+    setUserName(data.username);
+  }, []);
 
-    const [userName, setUserName] = useState();
-
-    // authentication code...
-    useEffect(() => {
-      // make an api call and send username and password
-      const data = {
-        username: "Himanshu",
-      };
-      setUserName(data.username);
-    }, []);
   return (
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      <div className="class">
-        <Header />
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+    
+    <Provider store={appStore}>
+        <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+            <div className="class">
+            <Header />
+            <Outlet />
+            </div>
+        </UserContext.Provider>
+    </Provider>
+    
   );
 };
 
@@ -50,6 +55,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: (
+          // we need suspense because of lazy loading or dynamic loading
           <Suspense fallback={<Shimmer />}>
             <About />
           </Suspense>
@@ -62,6 +68,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resid",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,
@@ -85,7 +95,7 @@ root.render(<RouterProvider router={appRouter} />);
  */
 
 /**
- * Never dynamically load a component inside another component ,always outside the component on the top just wjere we write the import statement
+ * Never dynamically load a component inside another component ,always outside the component on the top just where we write the import statement
  */
 
 /**
